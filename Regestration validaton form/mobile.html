@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Verification</title>
+  </head>
+  <style>
+    .h {
+      margin: 5% 33%;
+
+      width: 25%;
+      height: 200px;
+      border: solid gray;
+      border-radius: 4px;
+      padding: 50px 70px;
+    }
+    .h input {
+      width: 60%;
+      height: 30px;
+    }
+    #but {
+      border-radius: 9px;
+      width: 100px;
+      margin: 25px;
+      height: 35px;
+    }
+    #Num_er {
+      color: red;
+    }
+  </style>
+  <body>
+    <div style="padding: 40px 50px; font-size: 20px">
+      <a href="regestrationform.html"> <p>Back</p></a>
+    </div>
+    <form action="successfulsubmit.html" method="get">
+      <div class="h">
+        <h1>Mobile OTP Verification</h1>
+        <input type="OTP" name="otp" id="otp" placeholder="Enter OTP" />
+        <p id="Num_er"></p>
+        <div><button id="but" onclick=" return verify()">Submit</button></div>
+      </div>
+    </form>
+  </body>
+  <script>
+    function generate() {
+      var otpvalue = Math.floor(Math.random() * 10000);
+      console.log(otpvalue);
+
+      return otpvalue;
+    }
+    // generate();
+
+
+    var otp =generate()
+    console.log(otp)
+
+
+    function verify() {
+      var input = document.getElementById("otp").value;
+
+      if (otp == input) {
+        return true;
+      } else {
+        document.getElementById("Num_er").innerHTML = "Invalid OTP ";
+        return false;
+      }
+    }
+
+   
+  </script>
+</html>

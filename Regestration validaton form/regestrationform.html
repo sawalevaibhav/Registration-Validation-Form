@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Form</title>
+</head>
+<style>
+  .resform {
+    margin: 40px 15%;
+    border-style: solid;
+    border-color: gray;
+    border-radius: 8px;
+    width: 60%;
+    height: 600px;
+  }
+
+  .formv {
+    font-size: 20px;
+    padding: 20px 50px;
+    color: rgb(211, 25, 102);
+
+
+  }
+
+  .form {
+    color: rgb(211, 25, 102);
+    font-size: 20px;
+    padding: 20px 50px;
+
+
+  }
+
+  .formv input {
+    width: 50%;
+    padding: 12px 20px;
+    border: 1px solid blue;
+    border-radius: 4px;
+    font-size: 15px;
+    margin-left: 40px;
+
+  }
+
+
+  .sp {
+    color: red;
+    font-size: 14px;
+    padding-left: 5px;
+  }
+
+  #butoon {
+    margin: 45px 40%;
+    border-radius: 9px;
+    width: 130px;
+    height: 50px;
+    font-size: 20px;
+  }
+</style>
+
+<body>
+  <!-- 1 HTML CSS Javascript  files are inline / internal 
+      2 Total Regestration-form Files  3:  ( Registration.html , mobile.html ,successfulsubmit.html  ) -->
+
+  <div class="resform">
+    <h1 style="text-align: center; letter-spacing: 1.5px; color: rgb(175, 12, 34);">Registration Form [Sample form]</h1>
+
+    <form action="mobile.html" method="get">
+    <div class="formv" id="fname">
+      Full Name :
+      <input type="text" name="name" id="name" placeholder="Enter Name" required /><span class="sp" id="name_er"></span>
+    </div>
+
+    <div class="formv" id="fmail">
+      E-Mail :
+      <input type="email" name="email" id="mail" placeholder="Enter Email" required /><span class="sp"
+        id="mail_er"></span>
+    </div>
+
+    <div class="formv" id="fmobile"> Mobile No : <select style="width: 50px; height: 30px;" name="option" id="number">
+        <option value=""></option>
+        <option value="+91">+91</option>
+        <option value="+92">+92</option>
+        <option value="+93">+93</option>
+      </select>
+      <input type="number" name="phone" id="phone" placeholder="Enter phone" required /><span class="sp"
+        id="mobile_er"></span>
+
+
+
+    </div>
+    <div class="form" id="fgender">
+      Gender : <input type="radio" name="radio" id="fradio" required>M <span> <input style="padding-left: 80px;"
+          type="radio" name="radio" id="fradio">F</span>
+    </div>
+
+    <div class="form" id="fbox">
+      <input type="checkbox" name="checkbox" id="fbox" required> Agree
+    </div>
+    <div>
+      <button id="butoon" onclick=" return myform()">Proceed</button>
+
+    </div>
+    </form>
+</body>
+<script>
+  // function myform(){
+
+
+  //     var name= document.getElementById("name").value;
+  //     var email = document.getElementById("mail").value;
+  //     var phone = document.getElementById("phone").value;
+  //     var regex = /([a-zA-Z])/
+
+  //     if(name.length<5){
+  //         document.getElementById("name_er").innerHTML="Please Enter full Name";
+  //         return false; 
+  //     }else if( email.length <5 || mail.length>25){
+  //       document.getElementById("mail_er").innerHTML="Invalid  E-mail"
+  //       return false;
+  //     }
+  //     else if ( phone.length <10 || phone.length >10 ){
+  //       document.getElementById("mobile_er").innerHTML="Please Enter Valid no"
+  //       return false;
+  //     }
+  //     else{
+  //       return  true;
+  //     }
+
+
+  // }   
+
+  function myform() {
+    var name = document.getElementById("name")
+    var email = document.getElementById("mail")
+    var phone = document.getElementById("phone")
+
+    //  for name validaton
+
+    let regx = /([a-zA-Z]){4,15}/
+    let finalname = name.value
+    if (regx.test(finalname)) {
+      console.log("Pattern Match :([a-zA-Z]){4,15} ")
+
+    } else {
+      document.getElementById("name_er").innerHTML = "Please Enter Valid Name ";
+      return false;
+    }
+    // for E-mail Validation
+
+    let finalmail = email.value
+    let regxmail = /(^[_\-\.0-9a-zA-Z]+@)([_\-\.0-9a-zA-Z])/
+    console.log(finalmail)
+
+    if (regxmail.test(finalmail)) {
+      console.log("match mail : ", regxmail)
+    } else {
+      document.getElementById("mail_er").innerHTML = "Invalid  E-mail"
+      return false;
+    }
+
+    let finalphone = phone.value
+    let regxphone = /([0-9]){10}/
+
+
+    if (regxphone.test(finalphone)) {
+      console.log("correct number")
+    }
+    else {
+      document.getElementById("mobile_er").innerHTML = "Please Enter Valid no"
+      return false;
+    }
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
